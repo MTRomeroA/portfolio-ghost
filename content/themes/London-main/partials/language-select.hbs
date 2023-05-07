@@ -1,0 +1,33 @@
+<script>
+$(document).ready(function () {
+  // bind change event to select
+  $('.lang-box').on('click', function () {
+    var homeName ="index"
+    var url = new URL(window.location.href);
+    var urlString = window.location.href;
+    var modifier = this.innerHTML // get selected value
+    var newUrl;
+    console.log(this);
+
+
+    if (modifier == 'es') {
+
+          if (urlString == "http://localhost:2368/")
+          {newUrl = urlString;
+          window.location = newUrl + 'en/' ;
+          }
+          else {
+           newUrl = urlString.replace(/es/, 'en');
+           window.location = newUrl.slice(0, -1) + '-en';
+        }
+          }
+
+    else if (modifier == 'en') {
+        newUrl = urlString.replace(/en/, 'es')
+        window.location = newUrl.slice(0, -4);
+        }    
+        
+
+  });
+});
+</script>

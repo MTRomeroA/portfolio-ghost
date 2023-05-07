@@ -1,0 +1,101 @@
+{{!< default}}
+{{#post}}
+<article class="post-content-wide {{#unless feature_image}}no-image{{/unless}}">
+
+    <header class="post-content-header">
+        <h1 class="post-content-title">{{title}}</h1>
+    </header>
+
+    {{#if custom_excerpt}}
+        <p class="post-content-excerpt">{{custom_excerpt}}</p>
+    {{/if}}
+
+    {{#if feature_image}}
+    <figure class="post-content-image">
+        <img class="kg-image" src="{{feature_image}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
+        {{#if feature_image_caption}}
+            <figcaption>{{feature_image_caption}}</figcaption>
+        {{/if}}
+    </figure>
+    {{/if}}
+
+    <div class="post-content-body">
+        {{content}}
+    </div>
+
+    <div class="content-container">
+    <section id="tags-row-id" class="tags">
+        <div>
+            <ul class="tags-row">
+                 <li >
+                    <button class="tag-button tag-todo">
+                    Todo
+                    </button>
+                </li>
+                {{#get 'tags' limit='all' filter= 'slug: [diseno, ilustracion, web-ux-ui, animacion] '}}
+                {{#foreach tags}}
+                <li>
+                    <button class="tag-button tag-trigger tag-{{ slug }}">
+                    {{ name }}
+                    </button>
+                </li>
+                {{/foreach}} 
+                {{/get}}
+           
+            </ul>
+        </div>
+    </section>
+</div>
+
+    <div class="post-feed">
+
+    {{#get "posts" limit='all' include="tags,authors"}}
+    
+    {{#foreach posts}}
+        {{^has tag="#noShow" author="en"}}
+        {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+        {{> "post-card"}}
+        {{/has}}
+
+    {{/foreach}}
+    {{/get}}
+
+    
+    
+</div>
+
+</article>
+<div class="tags-bottom-container">
+    <h3> Categorías:</h3>
+    <ul class="tags-bottom">
+     {{#get 'tags' limit='all' filter= 'slug: [diseno, ilustracion, web-ux-ui, animacion] '}}
+    {{#foreach tags}}
+    <li>
+    <a href="/es/{{ slug }}">
+    {{ name }}
+    </a>
+    </li>
+    
+    {{/foreach}}
+    {{/get}}
+    </ul>
+</div>
+
+{{/post}}
+
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+<script>
+    var images = document.querySelectorAll('.kg-gallery-image img');
+    images.forEach(function (image) {
+        var container = image.closest('.kg-gallery-image');
+        var width = image.attributes.width.value;
+        var height = image.attributes.height.value;
+        var ratio = width / height;
+        container.style.flex = ratio + ' 1 0%';
+    })
+</script>
+{{/contentFor}}
+
+

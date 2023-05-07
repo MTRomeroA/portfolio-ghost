@@ -1,0 +1,95 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+
+<div class="site-main-container">
+    {{#if @site.description}}
+    <header class="page-head-main">
+
+        <div class="header-home-wrapper">
+            <div class="header-left">
+
+                <div class="header-left-wrapper">
+
+                {{#page}}
+                <h1 class="main-title-home"> {{title}}</h1>
+
+
+                <p> {{content}} </p>
+                
+                
+
+                {{/page}}
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="header-right-image">
+                    <img src="/assets/img/header-animation.svg" alt="">
+                </div>
+
+            </div>
+        </div>
+    </header> 
+
+
+<div class="content-container">
+
+    <h3 class="content-title">Proyectos seleccionados</h3>
+    <section id="tags-row-id" class="tags">
+        <div>
+            <ul class="tags-row">
+                 <li >
+                    <button class="tag-button tag-todo">
+                    All
+                    </button>
+                </li>
+                {{#get 'tags' limit='all' filter= 'slug: [diseno, ilustracion, web-ux-ui] '}}
+                {{#foreach tags}}
+                <li>
+                    <button class="tag-button tag-trigger tag-{{ slug }}">
+                    {{ name }}
+                    </button>
+                </li>
+                {{/foreach}} 
+                {{/get}}
+           
+            </ul>
+        </div>
+    </section>
+</div>
+    
+    {{/if}}
+
+
+<div class="post-feed">
+    {{#foreach posts}}
+        {{^has tag="#noShow"}}
+        {{#if featured}}
+        {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+        {{> "post-card"}}
+        {{/if}}
+        {{/has}}
+
+    {{/foreach}}
+</div>
+
+<div class="see-more-button">
+    <a  href="/es/portafolio/" class="custom-primary-btn">Mira más proyectos</a>
+
+</div>
+
+<div class="tags-bottom-container">
+    <ul class="tags-bottom">
+     {{#get 'tags' limit='all' filter= 'slug: [diseno, ilustracion, web-ux-ui, animacion]'}}
+    {{#foreach tags}}
+    <li>
+    <a href="/es/{{ slug }}">
+    {{ name }}
+    </a>
+    </li>
+    
+    {{/foreach}}
+    {{/get}}
+    </ul>
+</div>

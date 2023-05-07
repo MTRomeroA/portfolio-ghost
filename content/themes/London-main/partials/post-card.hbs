@@ -1,0 +1,30 @@
+{{!--
+
+On every 3rd post, add a special .post-card-large class and load a large image
+For the rest, just output a smaller background image
+
+--}}
+
+<div  class="post-card-container {{post_class}}">
+    <div class="post-text">
+             {{#if tags}}
+        <ul class="post-card-tags-group">
+        {{#foreach tags}}
+          <li>
+            <p title="{{name}}" class="post-card-tag">{{name}}</p>
+          </li>
+        {{/foreach}}
+        </ul>
+      {{/if}}
+            <a class="post-card-link" href="{{url}}">
+            <div class="post-card-content">
+                <h3 class="post-card-title">{{title}} →</h3>  
+            </div>
+        </a>
+    </div>
+    <a href="{{url}}"> 
+    <article class="post-card with-image" style="background-image: 
+    url({{img_url feature_image size="l"}})">
+    </article>
+  </a>
+</div>

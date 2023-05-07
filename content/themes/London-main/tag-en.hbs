@@ -1,0 +1,56 @@
+{{!< default-no-script-en}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{#page}}
+<article class="post-content {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
+
+    <header class="post-content-header">
+            <div>
+                <h2 class="tag-page-title">{{title}}</h2>
+
+                <p class="tag-page-content">{{content}}</p>
+                
+            </div>
+    </header>
+</header>
+</article>
+{{/page}}
+
+
+
+<div class="post-feed">
+{{#foreach posts}}
+
+    {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+    {{> "post-card"}}
+
+{{/foreach}}
+</div>
+
+
+
+<div class="see-more-button">
+      <a href="/en/portfolio/" class="custom-primary-btn">See more projects</a>
+
+</div>
+
+<div class="tags-bottom-container">
+<ul class="tags-bottom"> 
+         <li>
+            <a href="/en/animacion-en">Animation</a>
+        </li> 
+       
+        <li>
+            <a href="/en/ilustracion-en">Illustration</a>
+        </li>
+        <li>
+            <a href="/en/web-ux-ui-en">Web/UX/UI</a>
+        </li>
+      
+        <li>
+            <a href="/en/diseno-en">Design</a>
+        </li>
+    </ul>
+</div>
+

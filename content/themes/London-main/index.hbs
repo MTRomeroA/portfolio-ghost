@@ -1,0 +1,52 @@
+{{!< default-no-script}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+{{#is "home"}}
+    {{#if @site.description}}
+    <header class="page-head">
+        <div class="header-home-wrapper">
+            <div class="header-left">
+                <h2 class="page-head-title">{{@site.description}}</h2>
+                <p> Soy María Teresa (Mitty) Romero Antonioli y soy comunicaodra visual,
+                    con especial énfasis en diseño gráfico, ilustración y diseño web.
+                </p>
+            </div>
+            <div class="header-right">
+
+            </div>
+        </div>
+    </header> 
+    <section class="tags">
+        <div>
+            <ul class="tags-row">
+                 <li >
+                    <button class="tag-button tag-todo">
+                    Todo
+                    </button>
+                </li>
+                {{#get 'tags' limit='all' filter= 'slug: [diseno, ilustracion, web-ux-ui, animacion] '}}
+                {{#foreach tags}}
+                <li>
+                    <button class="tag-button tag-trigger tag-{{ slug }}">
+                    {{ name }}
+                    </button>
+                </li>
+            {{/foreach}} 
+                {{/get}}
+           
+            </ul>
+        </div>
+    </section>
+    {{/if}}
+{{/is}}
+
+<div class="post-feed">
+    {{#foreach posts}}
+
+        {{!-- The tag below includes the markup for each post - partials/post-card.hbs --}}
+        {{> "post-card"}}
+
+    {{/foreach}}
+</div>
+

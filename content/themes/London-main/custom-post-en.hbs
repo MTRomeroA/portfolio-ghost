@@ -1,0 +1,85 @@
+{{!< default-no-script-en}}
+{{#post}}
+<article class="post-content {{post_class}} {{#unless feature_image}}no-image{{/unless}}">
+
+    <header class="post-content-header">
+                <div class="tags-post-container"> 
+             {{#foreach tags}}
+                <a class="link-to-change" href="/en/{{ slug }}-en">
+                    <h6 class="tags-post">
+                    {{ name }} 
+                    </h6>
+                </a>
+            {{/foreach}} 
+            </div>
+        <h1 class="post-content-title">{{title}}</h1>
+    </header>
+
+    {{#if custom_excerpt}}
+        <p class="post-content-excerpt">{{custom_excerpt}}</p>
+    {{/if}}
+
+    {{#if feature_image}}
+    <figure class="post-content-image">
+        <img class="kg-image" src="{{feature_image}}" alt="{{#if feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}" />
+        {{#if feature_image_caption}}
+            <figcaption>{{feature_image_caption}}</figcaption>
+        {{/if}}
+    </figure>
+    {{/if}}
+
+    <div class="post-content-body">
+        {{content}}
+    </div>
+
+
+    {{!--
+    <section class="post-content-comments">
+        If you want to embed comments, this is a good place to do it!
+    </section>
+    --}}
+
+</article>
+<div class="see-more-button">
+    <a href="/en/portafolio-en/" class="custom-primary-btn">See more projects</a>
+
+</div>
+
+<div class="tags-bottom-container">
+<ul class="tags-bottom"> 
+         <li>
+            <a href="/en/animacion-en">Animation</a>
+        </li> 
+       
+        <li>
+            <a href="/en/ilustracion-en">Illustration</a>
+        </li>
+        <li>
+            <a href="/en/web-ux-ui-en">Web/UX/UI</a>
+        </li>
+      
+        <li>
+            <a href="/en/diseno-en">Design</a>
+        </li>
+    </ul>
+</div>
+{{/post}}
+
+
+{{!-- The #contentFor helper here will send everything inside it up to the matching #block helper found in default.hbs --}}
+{{#contentFor "scripts"}}
+<script>
+    var images = document.querySelectorAll('.kg-gallery-image img');
+    images.forEach(function (image) {
+        var container = image.closest('.kg-gallery-image');
+        var width = image.attributes.width.value;
+        var height = image.attributes.height.value;
+        var ratio = width / height;
+        container.style.flex = ratio + ' 1 0%';
+    })
+</script>
+{{/contentFor}}
+
+
+
+

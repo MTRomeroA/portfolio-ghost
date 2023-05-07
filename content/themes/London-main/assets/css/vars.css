@@ -1,0 +1,60 @@
+/* Variables
+/* ---------------------------------------------------------- */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+
+:root {
+
+    /* Colours */ 
+    --color-primary: #3C2A94; 
+    --color-base: #423E46;
+    --color-border: #ddd;   
+    --color-accent: #67C1CB;
+    --color-details: #82915A;
+    --color-bg:  #faf9f8;
+
+    /*main shades*/
+    --teal-800: #117b5c;
+    --teal-400: #9acebf;
+    --teal-200: #e2f1ec;
+    --teal-100: #f6faf9;
+
+    --blue-900: #16388f;
+    --indigo-900: #412998;
+    --indigo-100: #eeecf6;
+    --indigo-300: #d5d0e8;
+    --indigo-700: #8e80c2;
+
+
+    --green-700: #329c48;
+
+
+    /*grays*/
+    --gray-reddish-200: #e7dfd788;
+    --gray-reddish-lighter:#eceef3;
+
+    /* Fonts */
+    --font-sans-serif: 'Noto Sans', sans-serif;
+    --font-serif: Georgia, Times, serif;
+    --font-mono: Menlo, Courier, monospace;
+    --font-light: 100;
+    --font-normal: 400;
+    --font-bold: 700;
+    --font-heavy: 800;
+
+    /* Breakpoints */
+    --xlarge: 1680px;
+    --large: 1280px;
+    --medium: 980px;
+    --small: 740px;
+    --xsmall: 480px;
+
+    /* Sizes */
+    --height: 4rem;
+    --margin: 2rem;
+    --radius: 2rem;
+
+}

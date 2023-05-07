@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+<head>
+
+    {{!-- Document Settings --}}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    {{!-- Base Meta --}}
+    <title>{{meta_title}}</title>
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {{!-- Styles'n'Scripts --}}
+    <link rel="stylesheet" type="text/css" href="{{asset "built/screen.css"}}" />
+
+    {{!-- This tag outputs SEO meta+structured data and other important settings --}}
+    {{ghost_head}}
+
+</head>
+<body class="{{body_class}}">
+
+    <div class="site-wrapper">
+        <div class="footer-skewed-bottom">
+
+        </div>
+        <div class="skewed">
+            <img id="header-deco" src="{{asset "img/header-deco.svg"}}">
+
+
+        </div>
+        <div class="skewed-bottom">
+                    <img id="footer-background" src="{{asset "/img/footer.svg"}}">
+        </div>
+
+        <header class="site-head">
+            <div class="site-head-container">
+                <a class="nav-burger" href="#">
+                    <div class="hamburger hamburger--collapse" aria-label="Menu" role="button" aria-controls="navigation">
+                        <div class="hamburger-box">
+                            <div class="hamburger-inner"></div>
+                        </div>
+                        </div>
+                </a>
+                <nav id="swup" class="site-head-left">
+
+                {{navigation type="secondary"}}
+            
+                </nav>
+
+                <div class="site-head-center">
+                    {{#if @site.logo}}
+                        <a class="site-head-logo" href="{{@site.url}}"><img src="{{@site.logo}}" alt="{{@site.title}}" /></a>
+                    {{else}}
+                        <a class="site-head-logo" href="{{@site.url}}">{{@site.title}}</a>
+                    {{/if}}
+                </div>
+                <div class="lang-select">
+                    <div class="lang-select-container">
+                        <label class="language-label"> Language</label>
+                        <div id="lang-box-es" class="lang-box">en</div>
+                            
+                    </div>
+                </div>
+            
+                   
+                <div class="site-head-right">
+                    <div class="social-links">
+                        <a href="https://www.behance.net/mariatromeanto" title="Behance" target="_blank" rel="noopener">Behance</a>
+                         <a href="https://www.linkedin.com/in/mtromeroa" title="Linkedin" target="_blank" rel="noopener">Linkedin</a>
+                       
+                            
+                    </div>
+                </div> 
+            </div>
+        </header> 
+
+        <main id="site-main" class="site-main">
+            <div id="swup" class="transition-fade">
+
+            {{!-- All the main content gets inserted here, index.hbs, post.hbs, etc --}}
+            {{{body}}}
+
+            </div>
+        </main>
+
+        {{!-- The footer at the very bottom of the screen --}}
+        <footer class="site-foot">
+            &copy; {{date format="YYYY"}} <a href="{{@site.url}}">{{@site.title}}</a>
+            <br>
+            <a href="mailto:mt.romero.antonioli@gmail.com">mt.romero.antonioli@gmail.com</a>
+            <a href="https://www.linkedin.com/in/mtromeroa" title="Linkedin" target="_blank" rel="noopener">Linkedin</a>
+        </footer>
+
+    </div>
+
+
+    <script src="{{asset "built/swup.js"}}" data-swup-ignore-script></script>
+    <script src="{{asset "built/infinitescroll.js"}}" data-swup-ignore-script></script>
+    <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous">
+    </script>
+
+
+
+
+    <div id="swup">
+        {{!-- The #block helper will pull in data from the #contentFor other template files. In this case, there's some JavaScript which we only want to use in post.hbs, but it needs to be included down here, after jQuery has already loaded. --}}
+        {{{block "scripts"}}}
+
+        {{!-- Ghost outputs important scripts and data with this tag - it should always be the very last thing before the closing body tag --}}
+        {{ghost_foot}}
+    </div>
+
+{{> "language-select"}}
+
+    {{!-- Handle swup content replacement --}}
+    <script data-swup-ignore-script>
+        $(document).ready(function () {
+            // Mobile Menu Trigger
+            $('.nav-burger').click(function () {
+                $('body').toggleClass('site-head-open');
+            });
+        });
+
+        // Initiate Swup transitions
+        var swup = new Swup({
+            plugins: [new SwupHeadPlugin(), new SwupScriptsPlugin()],
+        });
+        document.addEventListener('swup:contentReplaced', event => {
+            window.scrollTo(0, 0);
+            initInfiniteScroll(window, document);
+            $('body').removeClass('site-head-open');
+        });
+    </script>
+
+
+</body>
+</html>
