@@ -1,0 +1,108 @@
+<script>
+var allVisible = true;
+var targetTagPressed = false;
+
+
+    function todoButtonActivate () {
+        showAll();
+        document.querySelector('.tag-todo').classList.add('pressed');
+        for (let i = 0; i < document.querySelectorAll('.tag-trigger').length; i++) {
+            document.querySelectorAll('.tag-trigger')[i].classList.remove('pressed');
+        }
+    }
+
+    function showAll() {
+        allVisible = true;
+        for (const card of Array.from(document.querySelectorAll('.post-card-container'))) {
+            card.classList.remove('hide');
+            card.classList.add('show');
+        }
+
+    }
+
+$(document).ready(function () {
+    var allVisible = true;
+    todoButtonActivate ()
+});
+
+window.onload = function(){
+    
+    
+
+    document.addEventListener('click' , function(event){
+        if (event.target.matches('.tag-todo')) {
+            todoButtonActivate();
+        }
+    });
+
+    document.addEventListener('click' , function(event){
+        if (event.target.matches('.tag-trigger')) {
+            tagButtonPress(event);
+        }
+    });
+
+
+
+
+    function showMatching(event) {  
+        allVisible = false;
+        for (const card of Array.from(document.querySelectorAll('.post-card-container'))) {
+            if(card.classList.contains(event.target.classList[2])) {
+                card.classList.add('show');
+                card.classList.remove('hide');
+            }
+
+            else {
+                card.classList.add('hide');
+                card.classList.remove('show');
+                
+            }
+
+        }
+    }
+
+
+    function tagButtonOnlyOne (event) {
+        
+        for (i=0; i<document.querySelectorAll('.tag-trigger').length; i++){
+            if (document.querySelectorAll('.tag-trigger')[i] !== event.target) {
+                document.querySelectorAll('.tag-trigger')[i].classList.remove('pressed');
+            }
+        }
+
+    }
+
+    function tagButtonPress(event) {
+
+        tagButtonOnlyOne(event);
+
+
+        switch (allVisible) {
+
+            case false: 
+
+                if (event.target.classList.contains('pressed')) {
+                    event.target.classList.remove('pressed');
+                    todoButtonActivate();   }
+
+                else {
+                    event.target.classList.toggle('pressed');
+                    showMatching(event);
+                } 
+                break;
+            
+
+            case true: 
+
+                event.target.classList.toggle('pressed');
+                document.querySelector('.tag-todo').classList.remove('pressed');
+                showMatching(event);
+                break;
+
+            
+        }
+
+    }
+
+};
+</script>

@@ -1,52 +1,4 @@
 routes:
-  /es/ilustracion/:
-    controller: channel
-    data: page.ilustracion
-    filter: tag:ilustracion
-    template: tag
-
-  /en/ilustracion-en/:
-    controller: channel
-    data: page.ilustracion-en
-    filter: tag:illustration
-    template: tag-en
-
-  /es/animacion/:
-    controller: channel
-    data: page.animacion
-    filter: tag:animacion
-    template: tag
-
-  /en/animacion-en/:
-    controller: channel
-    data: page.animacion-en
-    filter: tag:animation
-    template: tag-en
-
-  /en/diseno-en/:
-    controller: channel
-    filter: tag:design
-    data: page.diseno-en
-    template: tag-en
-
-  /es/diseno/:
-    controller: channel
-    filter: tag:diseno
-    data: page.diseno
-    template: tag
-
-  /es/web-ux-ui/:
-    controller: channel
-    data: page.web-ux-ui
-    filter: tag:hash-webes
-    template: tag
-
-  /en/web-ux-ui-en/:
-    data: page.web-ux-ui-en
-    controller: channel
-    filter: tag:hash-weben
-    template: tag-en
-  
 
 collections:
   /:
@@ -57,7 +9,7 @@ collections:
   /en/:
     permalink: /en/{slug}/
     data: page.index-en
-    template: home-en
+    template: home
     filter: 'tag:hash-en'
 
 taxonomies:

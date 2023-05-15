@@ -1,0 +1,74 @@
+{{!< default}}
+{{!-- The tag above means: insert everything in this file
+into the {body} of the default.hbs template --}}
+
+
+<section class="container">
+     <header class="row p-4">
+        <div class="col-sm">
+            
+                <div class="header-left-wrapper">
+
+                    {{#page}}
+                    <h1 class="main-title-home display-2 fw-bold"> {{title}}</h1>
+                    <div class="mt-4 lh-lg"> {{content}} </div>
+                    {{/page}}
+                </div>
+        </div>
+        <div class="col-sm">
+                <div class="header-right-image">
+                    <img src="assets/img/header-animation.svg" alt="">
+        </div>
+
+
+    </header>
+</section>
+
+
+
+<section class="container">
+    {{#page}}
+    {{#has author="es"}}
+    <h3 class="text-center display-5 my-5">Proyectos seleccionados</h3>
+    {{else}}
+    <h3 class="text-center display-5 my-5">Selected projects</h3>
+    {{/has}}
+    {{/page}}
+    
+    <div id="tags-row-id" class="tags">
+        <div>
+            <ul class="d-flex justify-content-center">
+                 <li class="mx-3">
+                    <button class="tag-button tag-todo">
+                    All
+                    </button>
+                </li>
+                {{#get 'tags' limit='all' filter= 'slug: [diseno, ilustracion, web-ux-ui] '}}
+                {{#foreach tags}}
+                <li class="mx-3">
+                    <button class="tag-button tag-trigger tag-{{ slug }}">
+                    {{ name }}
+                    </button>
+                </li>
+                {{/foreach}} 
+                {{/get}}
+           
+            </ul>
+        </div>
+    </div>
+    <div class="gh-postfeed">
+        
+        {{#foreach posts}}
+        {{^has tag="#noShow"}}
+            {{> "card" }} {{!-- partials/card.hbs --}}
+        {{/has}} 
+        {{/foreach}}
+           
+        </div>
+
+        {{!-- If JS isn't enabled, fallback to standard pagiantion --}}
+
+    </div>
+</section>
+{{> "tags-functionality"}}
+

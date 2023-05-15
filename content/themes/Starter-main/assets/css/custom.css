@@ -1,0 +1,64 @@
+.site-main-container {
+    padding: 2rem;
+}
+
+.gap-3 {
+    gap:1rem
+}
+
+.show {
+    visibility: visible;
+    opacity: 100%;
+
+}
+
+.hide {
+    visibility: hidden;
+    opacity: 0;
+    top: -1000px;
+    position: absolute;
+    
+}
+
+.tag-button {
+    background-color: rgba(79, 79, 79, 0.011);
+    box-shadow: none;
+    border: none;
+    padding: .5rem 1rem;
+    border-radius: 6px;
+    font-size: 1.5rem;
+    transition: all 0.4s ease-out
+}
+.tag-button:hover {
+    background-color: rgba(82, 81, 173, 0.416);
+    letter-spacing: 2px;
+}
+
+.tag-button.pressed {
+    background-color: rgb(25, 21, 221);
+}
+
+.tag {
+    background-color: rgba(79, 79, 79, 0.049);
+    padding: .5rem 1rem;
+    
+    
+}
+
+.tag p {
+    margin-bottom: 0px!important;
+}
+
+.post-card-container {
+    transition: all 0.4s ease-out;
+    max-width: 500px;
+}
+
+.post-card-container:hover{
+    background-color: rgba(82, 81, 173, 0.077);
+}
+
+.lang-box {
+    cursor: pointer;
+    background-color: rgba(79, 79, 79, 0.049);
+}
