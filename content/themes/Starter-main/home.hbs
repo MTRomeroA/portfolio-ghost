@@ -4,20 +4,16 @@ into the {body} of the default.hbs template --}}
 
 
 <section class="container">
-     <header class="row p-4">
-        <div class="col-sm">
+     <header class="p-4">
+        <div class="header-intro">
             
-                <div class="header-left-wrapper">
+                <div class="p-5">
 
                     {{#page}}
-                    <h1 class="main-title-home display-2 fw-bold"> {{title}}</h1>
-                    <div class="mt-4 lh-lg"> {{content}} </div>
+                    <h1 class="main-title-home text-primary"> {{title}}</h1>
+                    <div class="mt-4 lh-lg lead"> {{content}} </div>
                     {{/page}}
                 </div>
-        </div>
-        <div class="col-sm">
-                <div class="header-right-image">
-                    <img src="assets/img/header-animation.svg" alt="">
         </div>
 
 
@@ -26,37 +22,54 @@ into the {body} of the default.hbs template --}}
 
 
 
-<section class="container">
+<section class="container px-5">
     {{#page}}
     {{#has author="es"}}
-    <h3 class="text-center display-5 my-5">Proyectos seleccionados</h3>
+    <h2 class="text-center my-5 fw-normal">Proyectos seleccionados</h2>
     {{else}}
-    <h3 class="text-center display-5 my-5">Selected projects</h3>
+    <h2 class="text-center my-5 fw-normal">Selected projects</h2>
     {{/has}}
     {{/page}}
     
-    <div id="tags-row-id" class="tags">
+    <div id="tags-row-id" class="tags m-auto">
         <div>
             <ul class="d-flex justify-content-center">
-                 <li class="mx-3">
+                 <li class="tags-container">
                     <button class="tag-button tag-todo">
                     All
                     </button>
                 </li>
-                {{#get 'tags' limit='all' filter= 'slug: [diseno, ilustracion, web-ux-ui] '}}
+                {{#page}}
+                {{#has author="es"}}
+                 {{#get 'tags' limit='all' filter= 'slug: [diseno, ilustracion, web-ux-ui] '}}
                 {{#foreach tags}}
-                <li class="mx-3">
+                <li class="tags-container">
                     <button class="tag-button tag-trigger tag-{{ slug }}">
                     {{ name }}
                     </button>
                 </li>
                 {{/foreach}} 
                 {{/get}}
+                {{else}}
+                {{#get 'tags' limit='all' filter= 'slug: [design, illustration, web-ux-ui] '}}
+                {{#foreach tags}}
+                <li class="tags-container">
+                    <button class="tag-button tag-trigger tag-{{ slug }}">
+                    {{ name }}
+                    </button>
+                </li>
+                {{/foreach}} 
+                {{/get}}
+                {{/has}}
+                {{/page}}
+                
            
             </ul>
-        </div>
+        </div> 
     </div>
-    <div class="gh-postfeed">
+</section>
+<section>
+ <div class="container gh-postfeed px-5">
         
         {{#foreach posts}}
         {{^has tag="#noShow"}}
@@ -70,5 +83,8 @@ into the {body} of the default.hbs template --}}
 
     </div>
 </section>
+   
+   
+
 {{> "tags-functionality"}}
 

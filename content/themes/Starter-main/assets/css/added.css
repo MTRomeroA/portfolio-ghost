@@ -1,0 +1,179 @@
+* {
+    transition: all 0.4s ease-out;
+    letter-spacing: -0.015rem!important;
+}
+
+.gh-main {
+    animation-name: intro;
+    animation-duration: 1s
+}
+
+@keyframes intro {
+    from {opacity: 0%; margin-top: 3rem;}
+    to {opacity: 100%; margin-top: 0;}
+  }
+
+.animated {
+    animation-name: intro;
+    animation-duration: 4s;
+}
+
+.site-main-container {
+    padding: 2rem;
+}
+
+.gap-3 {
+    gap:1rem
+}
+
+.show {
+    visibility: visible;
+    opacity: 100%;
+
+}
+
+.hide {
+    visibility: hidden;
+    opacity: 0;
+    top: -1000px;
+    position: absolute;
+    
+}
+.tags {
+    max-width: 600px;
+}
+
+.badge {
+    margin: 0;
+    text-decoration: none!important;
+}
+.tags-container {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.tag-button {
+
+    border: none;
+    border-bottom: solid 2px rgb(174, 190, 204);
+    width: 100%;
+    box-shadow: none;
+    padding: .5rem 1rem;
+    font-size: 1.5rem;
+    transition: all 0.4s ease-out;
+    background-color: transparent;
+}
+.tag-button:hover {
+    background-color:#ECD8FD;
+    letter-spacing: 2px;
+    border-bottom: solid 2px #ECD8FD;
+}
+
+.tag-button.pressed{
+    background-color: #7D3EE3;
+    color: white;
+    border-bottom: solid 2px #7D3EE3;
+}
+
+.tag {
+    padding: .5rem 1rem;
+    
+    
+}
+
+.tag p {
+    margin-bottom: 0px!important;
+}
+
+.post-card-container {
+    transition: all 0.4s ease-out;
+    flex-basis: 37pc;
+    flex-grow: 0;
+}
+
+.post-card-container:hover{
+    background-color: #ecd8fd41;
+}
+
+
+.header-deco-image{
+    height: 450px;
+    max-width: 100%;
+    position:absolute;
+    top: 0;
+    z-index: -1;
+    right: 0;
+    opacity: 100%;
+}
+@media (max-width: 1500px) {
+    .header-deco-image {
+        height: 450px;
+    }
+}
+@media (max-width: 1200px) {
+    .header-deco-image {
+        height: 300px;
+    }
+}
+@media (max-width: 992px) {
+    .header-deco-image {
+        height: 200px;
+    }
+}
+
+.post-card-wrapper {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: top;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    line-height: 2.8rem;
+}
+
+.post-card-link {
+    text-decoration: none;
+}
+
+.post-card-title {
+    max-width: 80%;
+    line-height: 3rem;
+}
+.lang-select {
+    background-color: white;
+    padding: .2rem .5rem;
+}
+.language-label {
+    font-weight: 400;
+    font-size: 1.6rem;
+    line-height: 1.3em;
+    z-index: 3;
+    padding: 5px 0;
+}
+
+
+.lang-box {
+    cursor: pointer;
+    font-size: 1.6rem;
+    line-height: 3rem;
+    color: #7D3EE3;
+    font-weight: 800;
+    border-bottom: solid 2px #7D3EE3;
+    padding: 0 1rem;
+    border-radius: 1px;
+    z-index: 3;
+}
+.lang-box:hover {
+    background-color: #ECD8FD;
+    color: black;
+}
+
+
+
+.header-intro {
+    max-width: 600px;
+}
+
+.main-title-home {
+    font-size: 5rem;
+}

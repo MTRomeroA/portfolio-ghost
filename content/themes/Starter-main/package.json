@@ -15,7 +15,8 @@
         "build": "rollup -c --environment BUILD:production",
         "zip": "npm run build && bestzip $npm_package_name.zip assets/* partials/* members/* *.hbs package.json",
         "test": "npx gscan .",
-        "pretest": "npm run build"
+        "pretest": "npm run build",
+        "scss": "node-sass --watch assets/css/scss -o assets"
     },
     "author": {
         "name": "Ghost Foundation",
@@ -81,5 +82,10 @@
             }
         }
     },
-    "type": "module"
+    "type": "module",
+    "dependencies": {
+        "bootstrap": "^5.2.3",
+        "node-sass": "^8.0.0",
+        "sass": "^1.62.1"
+    }
 }

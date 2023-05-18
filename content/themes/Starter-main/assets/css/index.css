@@ -26,6 +26,7 @@ production stylesheet in assets/built/screen.css using: npm run dev
 @import "ghost/comments.css";
 
 /* custom */
+@import "added.css";
 @import "custom.css";
 
 /* Main - Your styles here! Edit below
@@ -33,10 +34,11 @@ production stylesheet in assets/built/screen.css using: npm run dev
 
 html,
 .gh-viewport {
+    position: relative;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    background: #ffffff;
+    z-index: 1;
 }
 
 .gh-main {

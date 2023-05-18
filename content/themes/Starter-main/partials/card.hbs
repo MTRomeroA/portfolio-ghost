@@ -1,35 +1,43 @@
 {{!--
 Re-usable card for linking to posts
+<img class="gh-card-image"
+    srcset="{{img_url feature_image size="s"}} 300w,
+    {{img_url feature_image size="m"}} 600w,
+    {{img_url feature_image size="l"}} 1000w,
+    {{img_url feature_image size="xl"}} 2000w"
+    sizes="(max-width: 1000px) 400px, 700px"
+    src="{{img_url feature_image size="m"}}"
+    alt="{{#if
+    feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+    />
 --}}
 <article class="{{post_class}} p-4 post-card-container">
-    <div class="">
-        {{#if feature_image}}
-        <a href="{{url}}"> <img class="gh-card-image"
-            srcset="{{img_url feature_image size="s"}} 300w,
-            {{img_url feature_image size="m"}} 600w,
-            {{img_url feature_image size="l"}} 1000w,
-            {{img_url feature_image size="xl"}} 2000w"
-            sizes="(max-width: 1000px) 400px, 700px"
-            src="{{img_url feature_image size="m"}}"
-            alt="{{#if
-            feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
-            /></a>
-       
-        {{/if}}
-        <div class="">
-              {{#if tags}}
-        <ul class="d-flex gap-3">
-            {{#foreach tags}}
-            <li class=" tag mx-1">
-                <p title="{{name}}" class="">{{name}}</p>
-            </li>
-            {{/foreach}}
-        </ul>
-        {{/if}}
-        <a href="{{url}}" >
-            <h2 class="">{{title}}  →</h2>
-            <p>{{excerpt}}</p>
-            <strong>Read more</strong>
-        </div></a>
-    </div>
+    
+        <div class="post-card-wrapper">
+            <a href="{{url}}">
+            <img class="gh-card-image"
+                srcset="{{img_url feature_image size="s"}} 300w,
+                {{img_url feature_image size="m"}} 600w,
+                {{img_url feature_image size="l"}} 1000w,
+                {{img_url feature_image size="xl"}} 2000w"
+                sizes="(max-width: 1000px) 400px, 700px"
+                src="{{img_url feature_image size="m"}}"
+                alt="{{#if
+                feature_image_alt}}{{feature_image_alt}}{{else}}{{title}}{{/if}}"
+                />
+                </a>
+            <div class="post-card-content">
+                {{#if tags}}
+                <ul class="d-flex gap-3">
+                    {{#foreach tags}}
+                    <p class=" badge bg-secondary text-dark mx-1">{{name}}</p>
+                    {{/foreach}}
+                </ul>
+                {{/if}}
+                <a class="post-card-link" href="{{url}}">
+                    <h3 class="text-break post-card-title">{{title}} →</h3>
+                    <p>{{excerpt}}</p>
+                </a>
+            </div> 
+        </div>
 </article>
