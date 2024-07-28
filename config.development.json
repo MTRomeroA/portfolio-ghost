@@ -7,7 +7,7 @@
   "database": {
     "client": "sqlite3",
     "connection": {
-      "filename": "C:\\Users\\Maria Teresa\\Desktop\\portfolio\\portafolio_ghost\\old-portfolio-ghost\\content\\data\\ghost-local.db"
+      "filename": "C:\\Users\\maria\\OneDrive\\Documentos\\GitHub\\portfolio-ghost\\content\\data\\ghost-local.db"
     }
   },
   "mail": {
@@ -21,6 +21,6 @@
   },
   "process": "local",
   "paths": {
-    "contentPath": "C:\\Users\\Maria Teresa\\Desktop\\portfolio\\portafolio_ghost\\old-portfolio-ghost\\content"
+    "contentPath": "C:\\Users\\maria\\OneDrive\\Documentos\\GitHub\\portfolio-ghost\\content"
   }
 }

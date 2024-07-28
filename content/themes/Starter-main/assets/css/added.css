@@ -141,33 +141,36 @@
 }
 .lang-select {
     background-color: white;
-    padding: .2rem .5rem;
 }
 .language-label {
     font-weight: 400;
     font-size: 1.6rem;
     line-height: 1.3em;
     z-index: 3;
-    padding: 5px 0;
+    display: flex;
+    align-items: center;
 }
 
 
 .lang-box {
-    cursor: pointer;
+    text-transform: uppercase;
     font-size: 1.6rem;
     line-height: 3rem;
-    color: #7D3EE3;
     font-weight: 800;
-    border-bottom: solid 2px #7D3EE3;
-    padding: 0 1rem;
-    border-radius: 1px;
-    z-index: 3;
 }
-.lang-box:hover {
+.lang-select-container:hover {
     background-color: #ECD8FD;
     color: black;
 }
 
+.lang-select-container {
+    cursor: pointer;
+    color: #7D3EE3;
+    z-index: 3;
+    gap: .5rem;
+    padding: 0 1rem;
+    justify-content: center;
+}
 
 
 .header-intro {

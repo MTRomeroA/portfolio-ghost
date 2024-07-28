@@ -31,7 +31,7 @@
   --bs-gray-800: rgb(40, 47, 54);
   --bs-gray-900: rgb(10, 15, 15);
   --bs-primary: #7D3EE3;
-  --bs-secondary: rgb(219, 228, 238);
+  --bs-secondary: rgb(232, 238, 245);
   --bs-success: #8DDB11;
   --bs-info: #00B2FF;
   --bs-warning: #FCBD00;
@@ -39,7 +39,7 @@
   --bs-light: rgb(246, 249, 255);
   --bs-dark: rgb(10, 15, 15);
   --bs-primary-rgb: 125, 62, 227;
-  --bs-secondary-rgb: 219, 228, 238;
+  --bs-secondary-rgb: 232, 238, 245;
   --bs-success-rgb: 141, 219, 17;
   --bs-info-rgb: 0, 178, 255;
   --bs-warning-rgb: 252, 189, 0;
@@ -4712,10 +4712,10 @@ textarea.form-control-lg {
 .badge {
   --bs-badge-padding-x: 0.65em;
   --bs-badge-padding-y: 0.35em;
-  --bs-badge-font-size: 0.75em;
+  --bs-badge-font-size: 0.83em;
   --bs-badge-font-weight: 600;
   --bs-badge-color: #fff;
-  --bs-badge-border-radius: 0.375rem;
+  --bs-badge-border-radius: 0.2rem;
   display: inline-block;
   padding: var(--bs-badge-padding-y) var(--bs-badge-padding-x);
   font-size: var(--bs-badge-font-size);
