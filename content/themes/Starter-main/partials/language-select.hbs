@@ -16,6 +16,10 @@ $(document).ready(function () {
           {newUrl = urlString;
           window.location = newUrl + 'en/' ;
           }
+          else if (urlString == "http://localhost:2368/9c3dfd9dfe86e6c364ca4f50933ee65e825c6e1d/index.html")
+          {newUrl = urlString.replace(/\/en\/index\.html$/, '/');
+          window.location = newUrl;
+          }
           else {
            newUrl = urlString.replace(/es/, 'en');
            window.location = newUrl.slice(0, -1) + '-en';
@@ -23,8 +27,13 @@ $(document).ready(function () {
           }
 
     else if (modifier == 'en') {
-        newUrl = urlString.replace(/en/, 'es')
-        window.location = newUrl.slice(0, -4);
+        if (urlString == "http://localhost:2368/9c3dfd9dfe86e6c364ca4f50933ee65e825c6e1d/en/index.html")
+          {newUrl = urlString.replace(/en/, 'es');
+          window.location = newUrl;
+          }
+        else
+        {newUrl = urlString.replace(/en/, 'es')
+        window.location = newUrl.slice(0, -4);}
         }    
         
 
