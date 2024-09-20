@@ -1,13 +1,14 @@
 <script>
 $(document).ready(function () {
   // bind change event to select
-  $('.lang-box').on('click', function () {
+  $('.lang-select').on('click', function () {
     var homeName ="index"
+    var currentLang = $('.lang-box').first().text();
+    console.log(currentLang)
     var url = new URL(window.location.href);
     var urlString = window.location.href;
-    var modifier = this.innerHTML // get selected value
+    var modifier = currentLang // get selected value
     var newUrl;
-    console.log(this);
 
 
     if (modifier == 'es') {
