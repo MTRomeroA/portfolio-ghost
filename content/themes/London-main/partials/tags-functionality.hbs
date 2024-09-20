@@ -12,7 +12,6 @@ var targetTagPressed = false;
     }
 
     function showAll() {
-        console.log('todo');
         allVisible = true;
         for (const card of Array.from(document.querySelectorAll('.post-card-container'))) {
             card.classList.remove('hide');
@@ -32,14 +31,12 @@ window.onload = function(){
 
     document.addEventListener('click' , function(event){
         if (event.target.matches('.tag-todo')) {
-            console.log('todini');
             todoButtonActivate();
         }
     });
 
     document.addEventListener('click' , function(event){
         if (event.target.matches('.tag-trigger')) {
-            console.log('clicked');
             tagButtonPress(event);
         }
     });
@@ -86,7 +83,6 @@ window.onload = function(){
 
                 if (event.target.classList.contains('pressed')) {
                     event.target.classList.remove('pressed');
-                    console.log(event.target.classList);
                     todoButtonActivate();   }
 
                 else {

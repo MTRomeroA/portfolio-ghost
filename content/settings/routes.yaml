@@ -1,13 +1,25 @@
 routes:
+  /: password
+  /9c3dfd9dfe86e6c364ca4f50933ee65e825c6e1d/:
+    controller: channel
+    template: home
+    data: page.index
+    filter: 'tag:-hash-en'
+
+  /9c3dfd9dfe86e6c364ca4f50933ee65e825c6e1d/en/:
+    template: home
+    controller: channel
+    data: page.index-en
+    filter: 'tag:hash-en'
 
 collections:
-  /:
-    permalink: /es/{slug}/
+  /es/:
+    permalink: /9c3dfd9dfe86e6c364ca4f50933ee65e825c6e1d/es/{slug}/
     data: page.index
     template: home
     filter: 'tag:-hash-en'
   /en/:
-    permalink: /en/{slug}/
+    permalink: /9c3dfd9dfe86e6c364ca4f50933ee65e825c6e1d/en/{slug}/
     data: page.index-en
     template: home
     filter: 'tag:hash-en'

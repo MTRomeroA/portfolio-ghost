@@ -70,13 +70,11 @@ into the {body} of the default.hbs template --}}
 </section>
 <section>
  <div class="container gh-postfeed px-5">
-        
         {{#foreach posts}}
         {{^has tag="#noShow"}}
             {{> "card" }} {{!-- partials/card.hbs --}}
         {{/has}} 
         {{/foreach}}
-           
         </div>
 
         {{!-- If JS isn't enabled, fallback to standard pagiantion --}}

@@ -4,7 +4,6 @@ $(document).ready(function () {
   $('.lang-select').on('click', function () {
     var homeName ="index"
     var currentLang = $('.lang-box').first().text();
-    console.log(currentLang)
     var url = new URL(window.location.href);
     var urlString = window.location.href;
     var modifier = currentLang // get selected value
@@ -13,7 +12,7 @@ $(document).ready(function () {
 
     if (modifier == 'es') {
 
-          if (urlString == "http://localhost:2368/")
+          if (urlString == "http://localhost:2368/9c3dfd9dfe86e6c364ca4f50933ee65e825c6e1d/")
           {newUrl = urlString;
           window.location = newUrl + 'en/' ;
           }
